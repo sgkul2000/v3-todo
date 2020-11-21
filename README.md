@@ -1,4 +1,5 @@
 # v3-todo
+This is a todo app created using Vue 3's Composition API.
 
 ## Project setup
 ```

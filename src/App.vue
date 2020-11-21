@@ -1,16 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div id="main">
+  <Main/>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import store from './store'
+import Main from './components/Main.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    Main
+  },
+  created () {
+    let localTodos = localStorage.getItem('todos')
+    if (localTodos) {
+      localTodos = JSON.parse(localTodos)
+      store.commit('setTodos', localTodos)
+    }
   }
 })
 </script>
